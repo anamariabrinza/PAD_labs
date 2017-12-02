@@ -2,6 +2,9 @@
 import asyncio
 import json
 
+from django.contrib.gis import feeds
+
+
 @asyncio.coroutine
 def send_message(message, loop):
     reader, writer = yield from asyncio.open_connection(
@@ -13,13 +16,22 @@ def send_message(message, loop):
         'payload': message
     }).encode('utf-8')
 
+    f = open("data.txt", "a+")
+
     writer.write(payload)
     writer.write_eof()
     yield from writer.drain()
     #print (message)
+    f.write(message + "\n")
+
+
     response = yield from reader.read(2048)
     writer.close()
+    f.close()
+
+
     return response
+
 
 MESSAGE = 'Hello, Ana'
 

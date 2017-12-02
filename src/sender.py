@@ -16,7 +16,7 @@ def send_message(message, loop):
     writer.write(payload)
     writer.write_eof()
     yield from writer.drain()
-
+    #print (message)
     response = yield from reader.read(2048)
     writer.close()
     return response
@@ -31,9 +31,9 @@ def run_sender(loop):
         try:
 
             message = ' Just sending a Mess{0}:  {1}'.format(i, MESSAGE)
-            print('Sending %s' % (message,))
+            #print('Sending %s' % (message,))
             response = yield from send_message(message, loop)
-            print('Received %s', response)
+            #print('Received %s', response)
             yield from asyncio.sleep(1)
         except KeyboardInterrupt:
             break

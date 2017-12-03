@@ -1,16 +1,7 @@
- Just sending a Mess1:  Hello, Ana
- Just sending a Mess2:  Hello, Ana
- Just sending a Mess3:  Hello, Ana
- Just sending a Mess4:  Hello, Ana
- Just sending a Mess5:  Hello, Ana
- Just sending a Mess6:  Hello, Ana
- Just sending a Mess7:  Hello, Ana
- Just sending a Mess8:  Hello, Ana
- Just sending a Mess9:  Hello, Ana
- Just sending a Mess10:  Hello, Ana
- Just sending a Mess1:  Hello, Ana
- Just sending a Mess2:  Hello, Ana
- Just sending a Mess3:  Hello, Ana
- Just sending a Mess4:  Hello, Ana
- Just sending a Mess5:  Hello, Ana
- Just sending a Mess6:  Hello, Ana
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess1:  Hello, Ana"}'
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess2:  Hello, Ana"}'
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess3:  Hello, Ana"}'
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess4:  Hello, Ana"}'
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess5:  Hello, Ana"}'
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess6:  Hello, Ana"}'
+b'{"type": "command", "command": "send", "payload": " Just sending a Mess7:  Hello, Ana"}'

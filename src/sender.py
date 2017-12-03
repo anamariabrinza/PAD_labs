@@ -22,7 +22,7 @@ def send_message(message, loop):
     writer.write_eof()
     yield from writer.drain()
     #print (message)
-    f.write(message + "\n")
+    f.write(str(payload) + "\n")
 
 
     response = yield from reader.read(2048)

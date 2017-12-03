@@ -7,14 +7,26 @@ def get_message(loop):
     reader, writer = yield from asyncio.open_connection(
         '127.0.0.1', 14141, loop=loop
     )
+
+
     writer.write(json.dumps({
         'type': 'command',
         'command': 'read'
     }).encode('utf-8'))
+
+    f = open("received.txt", "a+")
+
     writer.write_eof()
     yield from writer.drain()
+
+
     response = yield from reader.read()
+
+    f.write(str(response) + "\n")
+
     writer.close()
+    f.close()
+
     return response
 
 
@@ -26,6 +38,7 @@ def run_receiver(loop):
             print('Received %s', response)
             yield from asyncio.sleep(1)
         except KeyboardInterrupt:
+            #compararea
             break
 
 

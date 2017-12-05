@@ -8,6 +8,8 @@ from django.contrib.gis import feeds
 @asyncio.coroutine
 def send_message(message, loop):
     i = 0
+    freceived = open("messages/received.txt", "w")
+    freceived.close()
 
     reader, writer = yield from asyncio.open_connection(
         '127.0.0.1', 14141, loop=loop

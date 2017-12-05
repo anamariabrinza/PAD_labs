@@ -1,6 +1,6 @@
 ## Description of the `notibroker` protocol
 
-The protocol for the system `notibroker` is based on JSON.
+The protocol for the system `notibroker` is based on JSON and it's the protocol taken from the demo presented.
 `notibroker` exposes the following commands:
 
 - `send` - send a message to the queue;

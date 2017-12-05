@@ -8,4 +8,4 @@ This project work is based on 3 main components:
 - Client-producer (the sender)
 - Client-consumer (the receiver)
 
-![alt text](https://postimg.org/image/adwxamnyt/)
+[![image.png](https://s2.postimg.org/772dr03ix/image.png)](https://postimg.org/image/adwxamnyt/)

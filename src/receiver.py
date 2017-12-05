@@ -8,13 +8,11 @@ def get_message(loop):
         '127.0.0.1', 14141, loop=loop
     )
 
-
     writer.write(json.dumps({
         'type': 'command',
         'command': 'read'
     }).encode('utf-8'))
-
-    f = open("received.txt", "a+")
+    f = open("messages/received.txt", "a+")
 
     writer.write_eof()
     yield from writer.drain()
@@ -23,28 +21,40 @@ def get_message(loop):
     response = yield from reader.read()
 
     f.write(str(response) + "\n")
-
     writer.close()
     f.close()
+
+    f2 = open("messages/data.txt", "w")
+    f2.write(" ")
+    f2.close()
 
     return response
 
 
 @asyncio.coroutine
 def run_receiver(loop):
+    i = 0
     while True:
+        i = i + 1
         try:
+
             response = yield from get_message(loop)
-            print('Received %s', response)
+            print("{0}: {1}".format(i,response ))
             yield from asyncio.sleep(1)
+
+
         except KeyboardInterrupt:
             #compararea
+
             break
+
+
 
 
 def main():
     loop = asyncio.get_event_loop()
     loop.run_until_complete(run_receiver(loop))
+
 
 
 if __name__ == '__main__':

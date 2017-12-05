@@ -7,6 +7,8 @@ from django.contrib.gis import feeds
 
 @asyncio.coroutine
 def send_message(message, loop):
+    i = 0
+
     reader, writer = yield from asyncio.open_connection(
         '127.0.0.1', 14141, loop=loop
     )
@@ -16,18 +18,22 @@ def send_message(message, loop):
         'payload': message
     }).encode('utf-8')
 
-    f = open("data.txt", "a+")
-
     writer.write(payload)
     writer.write_eof()
     yield from writer.drain()
     #print (message)
-    f.write(str(payload) + "\n")
+
+
+    f = open("messages/data.txt".format(i), "a+")  # create new file
+    # name = id_data (timestamp)
+
+    f.write(message + "\n")
+    f.close()
 
 
     response = yield from reader.read(2048)
     writer.close()
-    f.close()
+
 
 
     return response
@@ -42,7 +48,7 @@ def run_sender(loop):
         i = i+1
         try:
 
-            message = ' Just sending a Mess{0}:  {1}'.format(i, MESSAGE)
+            message = '{0}: Just sending a Mess:  {1}'.format(i, MESSAGE)
             #print('Sending %s' % (message,))
             response = yield from send_message(message, loop)
             #print('Received %s', response)

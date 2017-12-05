@@ -1,4 +1,0 @@
-b'{"type": "response", "payload": " Just sending a Mess1:  Hello, Ana"}'
-b'{"type": "response", "payload": " Just sending a Mess2:  Hello, Ana"}'
-b'{"type": "response", "payload": " Just sending a Mess3:  Hello, Ana"}'
-b'{"type": "response", "payload": " Just sending a Mess4:  Hello, Ana"}'
